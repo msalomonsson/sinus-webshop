@@ -9,7 +9,7 @@ const Products = () => {
       <h1>Products</h1>
       {products.map((product, i) => {
         return (
-          <ul key={i}>
+          <ul key={i} className="products">
             <h2>{product.category}</h2>
             {product.info.map((info, i) => {
               return (

@@ -17,7 +17,7 @@ const Category = () => {
   return (
     <div>
       <h1>This is {category}</h1>
-      <ul>
+      <ul className="products">
         {products &&
           products.info.map((product, i) => {
             return (
