@@ -12,7 +12,7 @@ const Category = () => {
     axios.get(`/products/${category}`).then((res) => {
       setProducts(res.data);
     });
-  }, [products]);
+  }, []);
 
   return (
     <div>

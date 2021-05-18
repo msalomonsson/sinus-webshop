@@ -1,4 +1,4 @@
-import firebase from "../firebase/db.js";
+import firebase from "../frontend/src/firebase/db.js";
 const firestore = firebase.firestore();
 
 export const getProducts = async (req, res) => {

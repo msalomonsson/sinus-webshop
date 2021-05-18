@@ -1,7 +1,9 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.svg";
 const Nav = () => {
+  const { isSignIn } = useSelector((state) => state.profile);
   return (
     <div>
       <img src={logo} width="150rem" alt="" />
@@ -25,6 +27,9 @@ const Nav = () => {
       </Link>
       <Link to={`/wheels`}>
         <button>Wheels</button>
+      </Link>
+      <Link to="/login">
+        <button>{isSignIn ? "Profile" : "Login"}</button>
       </Link>
     </div>
   );

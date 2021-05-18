@@ -1,11 +1,18 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Route, Switch } from "react-router";
 import Category from "../category/Category";
 import Home from "../home/Home";
+import Login from "../login/Login";
 import Product from "../product/Product";
 import Products from "../products/Products";
+import Profile from "../profile/Profile";
 
 const Router = () => {
+  const { isSignIn } = useSelector((state) => state.profile);
+
+  console.log(isSignIn);
+
   return (
     <Switch>
       <Route exact path="/">
@@ -14,6 +21,10 @@ const Router = () => {
       <Route path="/products">
         <Products />
       </Route>
+      <Route
+        path="/login"
+        render={isSignIn ? () => <Profile /> : () => <Login />}
+      ></Route>
       <Route path="/product/:category/:id">
         <Product />
       </Route>
