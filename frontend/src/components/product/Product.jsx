@@ -15,22 +15,25 @@ const Product = () => {
       setProduct(res.data);
       console.log("this is product");
     });
-  }, []);
+  }, [category, id]);
 
   const addCart = () => {
     dispatch(addToCart(product));
   };
 
   return (
-    <div>
-      <h1>This is product detail</h1>
+    <div className="product-info-container">
       {product && (
-        <h2>
-          {product.title} <br /> {product.price}kr
-          <button onClick={addCart}>Buy </button>
-          <br />
+        <div className="product-info">
           <img src={product.img} alt="" />
-        </h2>
+          <div>
+            <h3 className="product-title">{product.title}</h3>
+            <h3 className="product-price">{product.price}kr</h3>
+            <button className="add-btn" onClick={(title) => addCart(title)}>
+              Add to cart
+            </button>
+          </div>
+        </div>
       )}
     </div>
   );

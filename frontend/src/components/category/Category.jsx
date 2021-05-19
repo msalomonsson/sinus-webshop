@@ -17,21 +17,21 @@ const Category = () => {
 
   return (
     <div>
-      <h1>This is {category}</h1>
-      <ul className="products">
+      <h1 className="big-category-title">{category}</h1>
+      <div className="category-info">
         {products &&
           products.info.map((product, i) => {
             return (
               <Link key={i} to={`/product/${category}/${i}`}>
-                <li className="product">
-                  <img src={product.img} alt="" />
-                  <h1>{product.title}</h1>
-                  <h1>{product.price}kr</h1>
-                </li>
+                <div className="product product-margin">
+                  <img height="80%" src={product.img} alt="" />
+                  <h3 className="product-title">{product.title}</h3>
+                  <h3 className="product-price">{product.price}kr</h3>
+                </div>
               </Link>
             );
           })}
-      </ul>
+      </div>
     </div>
   );
 };

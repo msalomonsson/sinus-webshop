@@ -1,22 +1,130 @@
-* {
-  box-sizing: border-box;
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700&display=swap");
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Red Hat Display", sans-serif;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+/* --------------- NAVBAR --------------- */
+.navbar-container {
+  position: fixed;
+  height: 5rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #030303;
+}
+.menu-wrapper {
+  display: flex;
+  align-items: center;
 }
 
-.products {
+.menu-title {
+  text-transform: uppercase;
+  margin: 0 1rem;
+  color: #e2e2e2;
+  font-size: 0.9rem;
+}
+.logo {
+  margin: 0 3rem 0 2rem;
+}
+.nav-icons-wrapper {
+  width: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-right: 4rem;
+}
+.cart-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+.cart-icon {
+  padding-bottom: 0.1rem;
+}
+.cart-number {
+  color: #927953;
+  font-size: 0.8rem;
+  font-weight: 700;
+  transform: translateY(5px);
+}
+
+/* --------------- HOME ---------------  */
+.home-container {
+  padding-top: 5rem;
+}
+
+/* --------------- PRODUCT CATEGORYS ---------------  */
+.big-category-title {
+  text-align: center;
+  text-transform: uppercase;
+  background-color: #0e0e0e;
+  color: #728386;
+  padding: 10rem 0 5rem 0;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.486);
+}
+.product {
+  width: 25rem;
+  height: 25rem;
+  padding: 2rem;
+  border-right: 1px solid #d3d3d3;
+  text-align: center;
+  cursor: pointer;
+}
+.products-category-wrapper {
+  display: flex;
+  overflow: scroll;
+  padding-left: 1rem;
+}
+/* All products small category titles */
+.category-title {
+  margin: 3rem 0 0.5rem 1.5rem;
+  text-transform: uppercase;
+  padding-left: 1rem;
+}
+.product-title {
+  margin-top: 1.5rem;
+  text-transform: uppercase;
+}
+.product-price {
+  font-weight: 400;
+  color: rgb(120, 120, 120);
+}
+
+.category-info {
   display: flex;
   flex-wrap: wrap;
 }
-
-.product {
-  padding: 2rem;
-  border: 1px solid;
-  border-radius: 20px;
-  margin: 1rem;
-  cursor: pointer;
+.product-margin {
+  margin: 5rem 0;
 }
 
-ul {
-  list-style: none;
+/* --------------- PRODUCT INFO ---------------  */
+.product-info-container {
+  padding-top: 5rem;
+}
+.product-info {
+  display: flex;
+}
+.add-btn {
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  margin-top: 1rem;
+}
+.login-container {
+  padding-top: 8rem;
+}
+.profile-container {
+  padding-top: 8rem;
 }

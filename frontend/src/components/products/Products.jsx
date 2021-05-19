@@ -5,24 +5,31 @@ const Products = () => {
   const { products } = useSelector((state) => state.products);
 
   return (
-    <div>
-      <h1>Products</h1>
+    <div className="products-container">
+      <h1 className="big-category-title">All Products</h1>
       {products.map((product, i) => {
         return (
-          <ul key={i} className="products">
-            <h2>{product.category}</h2>
-            {product.info.map((info, i) => {
-              return (
-                <Link to={`/product/${product.category}/${i}`} key={i}>
-                  <li className="product">
-                    <img src={info.img} alt="" />
-                    <h2>{info.title}</h2>
-                    <h2>{info.price} kr</h2>
-                  </li>
-                </Link>
-              );
-            })}
-          </ul>
+          <div key={i}>
+            <h2 className="category-title">{product.category}</h2>
+
+            <div className="products-category-wrapper">
+              {product.info.map((info, i) => {
+                return (
+                  <Link
+                    to={`/product/${product.category}/${i}`}
+                    key={i}
+                    className="link"
+                  >
+                    <div className="product">
+                      <img height="80%" src={info.img} alt="" />
+                      <h3 className="product-title">{info.title}</h3>
+                      <h3 className="product-price">{info.price} kr</h3>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
         );
       })}
     </div>

@@ -1,29 +1,50 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import axios from "axios";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserInfo } from "./profileSlice";
 
 const Profile = () => {
   const { user } = useSelector((state) => state.profile);
   console.log(user);
+  const [name, setName] = useState();
+  const [address, setAddress] = useState();
+  const [city, setCity] = useState();
+  const [cardNumber, setCardNumber] = useState();
+  const [cardDate, setCardDate] = useState();
+  const [cardCcv, setCardCcv] = useState();
+
+  const dispatch = useDispatch();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("clicked");
+    axios.patch(`/users/${user.id}`, {
+      address: address,
+      card: {
+        ccv: cardCcv,
+        date: cardDate,
+        number: cardNumber,
+      },
+      city: city,
+      name: name,
+    });
+    dispatch(getUserInfo(user.uid));
+  };
+
   return (
     <div>
-      {/* <h1>Welcome user {user.name}</h1>
-      <h1>
-        Your address are <br /> {user.address} <br /> {user.city}
-      </h1>
-      <h1>Your card info</h1>
       {user.card && (
-        <div>
-          <h2>{user.card.number}</h2>
-          <h3>{user.card.date}</h3>
-          <h3>{user.card.ccv}</h3>
-        </div>
-      )} */}
-
-      {user.card && (
-        <form>
+        <form onSubmit={handleSubmit}>
           <label>
             <h1>Name</h1>
-            <input type="text" name="name" defaultValue={user.name} disabled />
+            <input
+              type="text"
+              name="name"
+              defaultValue={user.name}
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
+            />
           </label>
           <label>
             <h1>Gatuaddress</h1>
@@ -31,12 +52,21 @@ const Profile = () => {
               type="text"
               name="address"
               defaultValue={user.address}
-              disabled
+              onChange={(e) => {
+                setAddress(e.target.value);
+              }}
             />
           </label>
           <label>
             <h1>City</h1>
-            <input type="text" name="city" defaultValue={user.city} disabled />
+            <input
+              type="text"
+              name="city"
+              defaultValue={user.city}
+              onChange={(e) => {
+                setCity(e.target.value);
+              }}
+            />
           </label>
           <label>
             <h1>Payment</h1>
@@ -46,7 +76,9 @@ const Profile = () => {
                 type="text"
                 name="cardNumber"
                 defaultValue={user.card.number}
-                disabled
+                onChange={(e) => {
+                  setCardNumber(e.target.value);
+                }}
               />
             </label>
             <label>
@@ -55,7 +87,9 @@ const Profile = () => {
                 type="text"
                 name="cardDate"
                 defaultValue={user.card.date}
-                disabled
+                onChange={(e) => {
+                  setCardDate(e.target.value);
+                }}
               />
             </label>
             <label>
@@ -64,10 +98,13 @@ const Profile = () => {
                 type="text"
                 name="cardCcv"
                 defaultValue={user.card.ccv}
-                disabled
+                onChange={(e) => {
+                  setCardCcv(e.target.value);
+                }}
               />
             </label>
           </label>
+          <button type="submit">Update Profile</button>
         </form>
       )}
     </div>

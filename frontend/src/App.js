@@ -5,6 +5,7 @@ import { setProducts } from "./components/products/productSlice";
 import "./App.css";
 import Router from "./components/routes/Routes";
 import Nav from "./components/navbar/Nav";
+import Footer from "./components/footer/Footer";
 
 const App = () => {
   const dispath = useDispatch();
@@ -14,12 +15,13 @@ const App = () => {
       dispath(setProducts(res.data));
       console.log("this is products");
     });
-  }, []);
+  }, [dispath]);
 
   return (
     <>
       <Nav />
       <Router />
+      <Footer />
     </>
   );
 };
