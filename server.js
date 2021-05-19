@@ -1,5 +1,6 @@
 import express from "express";
 import productRoutes from "./routes/products.js";
+import userRoutes from "./routes/users.js";
 
 const app = express();
 const port = 5070;
@@ -11,6 +12,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/products", productRoutes);
+
+app.use("/users", userRoutes);
 
 app.get("*", (req, res) => {
   res.send("Error: Nothin here");

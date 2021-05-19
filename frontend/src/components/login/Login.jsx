@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import db from "../../firebase/db";
-import { changeSignIn } from "../profile/profileSlice";
+import { changeSignIn, getUserInfo } from "../profile/profileSlice";
 
 const Login = () => {
   const [login, setLogin] = useState();
@@ -14,7 +14,7 @@ const Login = () => {
     db.auth()
       .signInWithEmailAndPassword(login, password)
       .then((user) => {
-        console.log(user.user);
+        dispatch(getUserInfo(user.user.uid));
         dispatch(changeSignIn(true));
       });
   };

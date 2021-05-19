@@ -12,6 +12,7 @@ const App = () => {
   useEffect(() => {
     axios.get("/products").then((res) => {
       dispath(setProducts(res.data));
+      console.log("this is products");
     });
   }, []);
 
