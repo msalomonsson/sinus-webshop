@@ -2,7 +2,6 @@
 
 .footer-body {
   font-family: "Red Hat Display", sans-serif;
-  /* position: absolute; */
   bottom: 0;
   left: 0;
   width: 100%;
@@ -24,7 +23,7 @@ ul {
   list-style: none;
 }
 .footer {
-  background-color: #24262b;
+  background-color: #0e0e0e;
   padding: 70px 0;
 }
 .footer-col {
@@ -82,19 +81,13 @@ ul {
   transition: all 0.5s ease;
 }
 .footer-col .social-links span:hover {
-  color: #24262b;
-  background-color: #ffffff;
-}
-.icon {
-  margin: auto;
-  text-align: center;
-  height: 100%;
-  width: 60%;
+  background-color: #927953;
 }
 
-.icon :hover {
-  color: #24262b;
+img {
+  padding-top: 12px;
 }
+
 .singUp-btn {
   cursor: pointer;
   margin-top: 1.5rem;
@@ -106,6 +99,7 @@ ul {
   font-size: 0.9rem;
   letter-spacing: 0.1rem;
   font-weight: bold;
+  transition: 0.3s ease-in-out;
   /* transition-duration: 0.1s; */
   /* transition-timing-function: linear; */
 }

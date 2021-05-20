@@ -1,9 +1,27 @@
 import React from "react";
 import "./footer.css";
 import logo from "../assets/logo.svg";
+import facebookicon from "../assets/facebookIcon.svg";
+import instagramicon from "../assets/instagramIcon.svg";
+import twittericon from "../assets/twitterIcon.svg";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import db from "../../firebase/db";
+import { changeSignIn } from "../profile/profileSlice";
 
 function Footer() {
+  const { isSignIn } = useSelector((state) => state.profile);
+  const dispatch = useDispatch();
+
+  const handleSignOut = () => {
+    db.auth()
+      .signOut()
+      .then(() => {
+        dispatch(changeSignIn(false));
+        console.log("log out");
+      });
+  };
+
   return (
     <div className="footer-body">
       <footer className="footer">
@@ -19,59 +37,57 @@ function Footer() {
                 />
               </Link>
             </div>
-
             <div className="footer-col">
               <h4>company</h4>
               <ul>
                 <li>
                   <Link to="#">
-                    <p className="menu-title">About us</p>
+                    <p className="footer-title">About us</p>
                   </Link>
                 </li>
                 <li>
                   <Link to="#">
-                    <p className="menu-title">Our Service</p>
+                    <p className="footer-title">Our Service</p>
                   </Link>
                 </li>
                 <li>
                   <Link to="#">
-                    <p className="menu-title">Privacy Policy</p>
+                    <p className="footer-title">Privacy Policy</p>
                   </Link>
                 </li>
                 <li>
                   <Link to="#">
-                    <p className="menu-title">Contact Us</p>
+                    <p className="footer-title">Contact Us</p>
                   </Link>
                 </li>
               </ul>
             </div>
-
             <div className="footer-col">
               <h4>online shop</h4>
               <ul>
                 <li>
                   <Link to="/products">
-                    <p className="menu-title">All Products</p>
+                    <p className="footer-title">All Products</p>
                   </Link>
                 </li>
                 <li>
                   <Link to={`/hoodies`}>
-                    <p className="menu-title">Hoodies</p>
+                    <p className="footer-title">Hoodies</p>
                   </Link>
                 </li>
                 <li>
                   <Link to={`/caps`}>
-                    <p className="menu-title">Caps</p>
+                    <p className="footer-title">Caps</p>
                   </Link>
                 </li>
                 <li>
                   <Link to={`/tshirts`}>
-                    <p className="menu-title">T-shirt</p>
+                    <p className="footer-title">T-shirt</p>
                   </Link>
                 </li>
                 <li>
                   <Link to={`/skateboards`}>
-                    <p className="menu-title">Skateboard</p>
+                    <p className="footer-title">Skateboard</p>
                   </Link>
                 </li>
               </ul>
@@ -79,14 +95,27 @@ function Footer() {
             <div className="footer-col">
               <h4>follow us</h4>
               <div className="social-links">
-                <span></span>
-
-                <span>{/* <SiInstagram /> */}</span>
-                <span></span>
+                <span>
+                  <img src={facebookicon} alt="" />
+                </span>
+                <span>
+                  <img src={instagramicon} alt="" />
+                </span>
+                <span>
+                  <img src={twittericon} alt="" />
+                </span>
               </div>
-              <Link to="Login">
-                <button className="singUp-btn">Log in</button>
-              </Link>
+              {!isSignIn ? (
+                <Link to="Login">
+                  <button className="singUp-btn">Log in</button>
+                </Link>
+              ) : (
+                <Link to="Login">
+                  <button className="singUp-btn" onClick={handleSignOut}>
+                    Log out
+                  </button>
+                </Link>
+              )}
             </div>
           </div>
         </div>

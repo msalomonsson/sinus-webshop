@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700&display=swap");
+
+.profil-form {
+  width: 100%;
+  margin: auto;
+  padding-top: 9rem;
+  max-width: 50rem;
+  min-height: 670px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input:focus {
+  outline: none;
+  background-color: none;
+  border-bottom: 2px solid #c5811a;
+}
+.input-name {
+  width: 60%;
+}
+
+.input-street {
+  width: 100%;
+  padding: 10px 5px;
+  margin: 8px 0;
+  margin-bottom: 3rem;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid rgb(58, 57, 57);
+}
+
+/* .Address-input,
+[type="text"] {
+  width: 100%;
+  padding: 10px 5px;
+  margin: 8px 0 3rem 0;
+  margin-bottom: 3rem;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid rgb(58, 57, 57);
+} */
+
+.address {
+  display: flex;
+}
+
+.city {
+  padding-left: 1rem;
+}
+
+.card {
+  display: flex;
+}
+
+.card-date,
+.card-cvc {
+  margin-left: 1rem;
+}
+.profile-btn {
+  text-align: center;
+  margin-top: 3rem;
+}
+.btn-update {
+  cursor: pointer;
+  background-color: #000;
+  /* background: #927953; */
+  border: none;
+  padding: 15px 40px;
+  border-radius: 25px;
+  font-size: 0.7rem;
+  font-weight: bolder;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  transition: 0.3s ease-in-out;
+}
+
+.btn-update:hover {
+  background: #927953;
+  color: #000;
+}

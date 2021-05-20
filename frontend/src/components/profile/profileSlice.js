@@ -8,6 +8,16 @@ export const getUserInfo = createAsyncThunk("/users", async (uid) => {
   return response;
 });
 
+export const createUser = createAsyncThunk("/createUser", async (uid) => {
+  axios.post("/users/createUser", {
+    address: "",
+    card: { ccv: "", date: "", number: "" },
+    city: "",
+    name: "",
+    uid: uid,
+  });
+});
+
 const initialState = {
   isSignIn: false,
   user: {},

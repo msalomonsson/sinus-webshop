@@ -26,3 +26,9 @@ export const updateUser = async (req, res) => {
   await firestore.collection("users").doc(id).update(updatedUser);
   console.log(id);
 };
+
+export const createUser = async (req, res) => {
+  let user = req.body;
+
+  await firestore.collection("users").doc().set(user);
+};

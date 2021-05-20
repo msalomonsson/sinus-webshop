@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 import logo from "../assets/logo.svg";
 import loginIcon from "../assets/login.svg";
 import cartIcon from "../assets/cart-icon.svg";
+import "./nav.css";
 
 const Nav = () => {
   const { cart } = useSelector((state) => state.products);
   const [cartCount, setCartCount] = useState(0);
-  // const { isSignIn } = useSelector((state) => state.profile);
 
   useEffect(() => {
     let count = 0;
@@ -23,22 +23,22 @@ const Nav = () => {
           <img className="logo" src={logo} width="130rem" alt="Logo" />
         </Link>
         <Link to="/products">
-          <p className="menu-title">All Products</p>
+          <p className="menu-title btn-hover">All Products</p>
         </Link>
         <Link to={`/hoodies`}>
-          <p className="menu-title">Hoodies</p>
+          <p className="menu-title btn-hover">Hoodies</p>
         </Link>
         <Link to={`/caps`}>
-          <p className="menu-title">Caps</p>
+          <p className="menu-title btn-hover">Caps</p>
         </Link>
         <Link to={`/tshirts`}>
-          <p className="menu-title">T-shirt</p>
+          <p className="menu-title btn-hover">T-shirt</p>
         </Link>
         <Link to={`/skateboards`}>
-          <p className="menu-title">Skateboard</p>
+          <p className="menu-title btn-hover">Skateboard</p>
         </Link>
         <Link to={`/wheels`}>
-          <p className="menu-title">Wheels</p>
+          <p className="menu-title btn-hover">Wheels</p>
         </Link>
       </div>
 
@@ -48,7 +48,7 @@ const Nav = () => {
         </Link>
         <div className="cart-wrapper">
           <Link to={`/cart`}>
-            <p className="cart-number">{cartCount}</p>
+            <p className="cart-icon-number">{cartCount}</p>
             <img className="cart-icon" src={cartIcon} alt="Cart" />
           </Link>
         </div>
