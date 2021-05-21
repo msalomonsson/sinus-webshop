@@ -18,7 +18,6 @@ function Footer() {
       .signOut()
       .then(() => {
         dispatch(changeSignIn(false));
-        console.log("log out");
       });
   };
 

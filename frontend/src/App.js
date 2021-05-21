@@ -13,16 +13,21 @@ const App = () => {
   useEffect(() => {
     axios.get("/products").then((res) => {
       dispath(setProducts(res.data));
-      console.log("this is products");
     });
   }, [dispath]);
 
   return (
-    <>
-      <Nav />
-      <Router />
-      <Footer />
-    </>
+    <div id="page-container">
+      <div id="navbar-container">
+        <Nav />
+      </div>
+      <div id="content-wrap">
+        <Router />
+      </div>
+      <div id="footer-wrapper">
+        <Footer />
+      </div>
+    </div>
   );
 };
 

@@ -7,6 +7,7 @@ import {
   validateSignInEmail,
   validateSignInPassword,
 } from "../../validation/validation";
+import { Link } from "react-router-dom";
 
 function Login() {
   const [login, setLogin] = useState();
@@ -67,6 +68,9 @@ function Login() {
             name="tab"
             className="sign-in"
             defaultChecked
+            onClick={() => {
+              setError({ ...error, error: false });
+            }}
           />
           <label
             htmlFor="tab-1"
@@ -128,7 +132,9 @@ function Login() {
                   }}
                 />
               </div>
-              {error.error ? <p>{error.errorMsg}</p> : null}
+              {error.error ? (
+                <p style={{ color: "red" }}>{error.errorMsg}</p>
+              ) : null}
               <div className="hr"></div>
             </form>
             <form className="sign-up-htm" onSubmit={signUpUser}>
@@ -177,11 +183,13 @@ function Login() {
               <div className="group">
                 <input type="submit" className="button" value="Sign Up" />
               </div>
-              {error.error ? <p>{error.errorMsg}</p> : null}
+              {error.error ? (
+                <p style={{ color: "red" }}>{error.errorMsg}</p>
+              ) : null}
               <div className="hr"></div>
               <div className="foot-lnk">
                 <label htmlFor="tab-1" style={{ cursor: "pointer" }}>
-                  Are you already member?Log in here
+                  Are you already member? Log in here
                 </label>
               </div>
             </form>

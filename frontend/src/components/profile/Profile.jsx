@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserInfo } from "./profileSlice";
 import "./profile.css";
@@ -7,7 +7,6 @@ import "./profile.css";
 const Profile = () => {
   const { user } = useSelector((state) => state.profile);
   console.log(user);
-
   const [name, setName] = useState();
   const [address, setAddress] = useState();
   const [city, setCity] = useState();
@@ -17,10 +16,9 @@ const Profile = () => {
 
   const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("clicked");
-    axios.patch(`/users/${user.id}`, {
+    await axios.patch(`/users/${user.id}`, {
       address: address,
       card: {
         ccv: cardCcv,
@@ -96,7 +94,10 @@ const Profile = () => {
                       name="cardNumber"
                       className="input-street"
                       placeholder="XXXX-XXXX-XXXX-XXXX"
-                      defaultValue={user.card.number}
+                      defaultValue={
+                        user.card.number &&
+                        user.card.number.match(/.{1,4}/g).join(" ")
+                      }
                       onChange={(e) => {
                         setCardNumber(e.target.value);
                       }}

@@ -11,7 +11,7 @@ import Profile from "../profile/Profile";
 
 const Router = () => {
   const { isSignIn } = useSelector((state) => state.profile);
-
+  console.log(isSignIn);
   return (
     <Switch>
       <Route exact path="/">

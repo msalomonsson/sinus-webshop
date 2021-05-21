@@ -34,7 +34,6 @@ const profileSlice = createSlice({
   extraReducers: {
     [getUserInfo.fulfilled]: (state, action) => {
       state.user = action.payload[0];
-      console.log(state.user);
     },
   },
 });

@@ -11,7 +11,6 @@ const productSlice = createSlice({
   reducers: {
     setProducts: (state, action) => {
       state.products = action.payload;
-      console.log(state.products);
     },
     addToCart: (state, action) => {
       const existing = state.cart.find(

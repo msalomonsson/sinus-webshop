@@ -11,7 +11,6 @@ const Category = () => {
   useEffect(() => {
     axios.get(`/products/${category}`).then((res) => {
       setProducts(res.data);
-      console.log("this is category");
     });
   }, [category]);
 

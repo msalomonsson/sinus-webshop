@@ -1,0 +1,99 @@
+.home-conatiner {
+  padding-top: 5rem;
+}
+
+.showcase {
+  background-position: center;
+  background-repeat: none;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.showcae-content {
+  height: auto;
+  width: 60%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.right-content {
+  margin-right: 3rem;
+}
+
+.square {
+  padding-top: 3.5rem;
+  padding-left: 1rem;
+}
+.img-content {
+  display: grid;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1px);
+  gap: -30rem;
+}
+.skateboard {
+  padding-top: 1rem;
+  transform: rotate(4deg);
+  cursor: pointer;
+  animation-name: spin;
+  animation-duration: 4s;
+  animation-iteration-count: 1;
+  transition-timing-function: linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.circle {
+  margin-top: 3.5rem;
+  width: 334px;
+  height: 334px;
+  border-radius: 50%;
+  background-color: #c4c4c42f;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-two {
+  padding-right: 4rem;
+}
+.circle-text {
+  padding-top: 1rem;
+}
+.left-content-text {
+  font-size: 1.8rem;
+  font-weight: bolder;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.p-text {
+  line-height: 0.5rem;
+  padding-bottom: 2rem;
+}
+
+.rightfil {
+  cursor: pointer;
+  height: 3rem;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.rightfil:hover {
+  padding-left: 8px;
+}
+
+@media (max-width: 1300px) {
+  .showcae-content {
+  }
+}
