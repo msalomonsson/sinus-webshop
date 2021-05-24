@@ -17,17 +17,19 @@ const App = () => {
   }, [dispath]);
 
   return (
-    <div id="page-container">
-      <div id="navbar-container">
-        <Nav />
+    <>
+      <div id="page-container">
+        <div id="navbar-container">
+          <Nav />
+        </div>
+        <div id="content-wrap">
+          <Router />
+        </div>
+        <div id="footer-wrapper">
+          <Footer />
+        </div>
       </div>
-      <div id="content-wrap">
-        <Router />
-      </div>
-      <div id="footer-wrapper">
-        <Footer />
-      </div>
-    </div>
+    </>
   );
 };
 

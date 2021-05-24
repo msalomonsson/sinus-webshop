@@ -20,11 +20,14 @@ const Profile = () => {
     e.preventDefault();
     await axios.patch(`/users/${user.id}`, {
       address: address,
-      card: {
-        ccv: cardCcv,
-        date: cardDate,
-        number: cardNumber,
-      },
+      cardNumber: cardNumber,
+      cardDate: cardDate,
+      cardCcv: cardCcv,
+      // card: {
+      //   ccv: cardCcv,
+      //   date: cardDate,
+      //   number: cardNumber,
+      // },
       city: city,
       name: name,
     });
@@ -95,8 +98,8 @@ const Profile = () => {
                       className="input-street"
                       placeholder="XXXX-XXXX-XXXX-XXXX"
                       defaultValue={
-                        user.card.number &&
-                        user.card.number.match(/.{1,4}/g).join(" ")
+                        user.cardNumber &&
+                        user.cardNumber.match(/.{1,4}/g).join(" ")
                       }
                       onChange={(e) => {
                         setCardNumber(e.target.value);
@@ -112,7 +115,7 @@ const Profile = () => {
                       name="cardDate"
                       className="input-street"
                       placeholder="MM/YY"
-                      defaultValue={user.card.date}
+                      defaultValue={user.cardDate}
                       onChange={(e) => {
                         setCardDate(e.target.value);
                       }}
@@ -127,7 +130,7 @@ const Profile = () => {
                       name="cardCcv"
                       className="input-street"
                       placeholder="CVV"
-                      defaultValue={user.card.ccv}
+                      defaultValue={user.cardCcv}
                       onChange={(e) => {
                         setCardCcv(e.target.value);
                       }}

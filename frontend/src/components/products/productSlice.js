@@ -22,8 +22,38 @@ const productSlice = createSlice({
       }
       state.cart.push({ ...action.payload, qty: 1 });
     },
+    removeFromCart: (state, action) => {
+      console.log("delete");
+      state.cart.map((item, i) => {
+        if (item.title === action.payload) {
+          state.cart.splice(i, 1);
+        }
+        return null;
+      });
+    },
+    incrementQty: (state, action) => {
+      const itemID = state.cart.find((item) => item.title === action.payload);
+      if (itemID) {
+        itemID.qty += 1;
+        return;
+      }
+    },
+    decrementQty: (state, action) => {
+      const itemID = state.cart.find((item) => item.title === action.payload);
+      if (itemID.qty - 1 < 1) {
+        itemID.qty = 1;
+      } else {
+        itemID.qty -= 1;
+      }
+    },
   },
 });
 
-export const { setProducts, addToCart } = productSlice.actions;
+export const {
+  setProducts,
+  addToCart,
+  removeFromCart,
+  incrementQty,
+  decrementQty,
+} = productSlice.actions;
 export default productSlice.reducer;

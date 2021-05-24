@@ -6,6 +6,7 @@ import square from "../assets/Square.svg";
 import skateboard from "../assets/skateboard.svg";
 import fil from "../assets/rightfil.svg";
 import logo from "../assets/logo-one.svg";
+import downfil from "../assets/down.svg";
 
 const Home = () => {
   return (
@@ -25,7 +26,7 @@ const Home = () => {
               />
               <div className="circle-text">
                 <p className="left-content-text">NEW</p>
-                <p className="left-content-text">SKATE DESIGNE</p>
+                <p className="left-content-text">SKATE DESIGN</p>
                 <p className="p-text">New trend for summer</p>
               </div>
               <Link to={`/skateboards`}>
@@ -34,6 +35,14 @@ const Home = () => {
                   alt="rightfil"
                   className="rightfil"
                   style={{ height: "2rem" }}
+                />
+              </Link>
+              <Link to={`/skateboards`}>
+                <img
+                  src={downfil}
+                  alt="downfil"
+                  className="down-fil"
+                  style={{ height: "2.5rem" }}
                 />
               </Link>
             </div>
@@ -49,11 +58,14 @@ const Home = () => {
         </div>
       </div>
       <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          margin: "10rem",
-        }}
+        // style={{
+        //   display: "flex",
+        //   justifyContent: "center",
+
+        //   maxWidth: "2rem",
+        //   margin: "auto",
+        // }}
+        className={"logos"}
       >
         <img src={logo} alt="" />
         <img src={logo} alt="" />

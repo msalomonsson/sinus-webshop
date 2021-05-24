@@ -65,3 +65,27 @@
   transform: translateY(11px);
   text-align: center;
 }
+
+.hamburger {
+  display: none;
+}
+
+@media screen and (max-width: 1000px) {
+  .menu-wrapper {
+    display: none;
+  }
+  .navbar-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .hamburger {
+    display: inline;
+  }
+  .login-icon,
+  .cart-icon {
+    width: 2rem;
+  }
+  .cart-icon-number {
+    font-size: 1rem;
+  }
+}
