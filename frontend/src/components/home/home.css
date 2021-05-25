@@ -97,6 +97,56 @@
   display: none;
 }
 
+.home-row {
+  padding: 6rem 0 4rem 0;
+  display: flex;
+  text-align: center;
+}
+.line-left,
+.line-right {
+  width: 100%;
+  border-bottom: 1px solid #000;
+}
+.line-left {
+  margin: 0 1rem 0 0rem;
+}
+.line-right {
+  margin-left: 1rem;
+}
+.home-line-text {
+  width: 10rem;
+  margin-bottom: -0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 1.2rem;
+  font-weight: bolder;
+}
+.cap-foto {
+  height: 16rem;
+}
+.skate-foto {
+  height: 22rem;
+}
+
+.hoodie-foto {
+  height: 20rem;
+}
+
+.photo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 4rem;
+}
+.trend-cap {
+  width: 25rem;
+  height: 25rem;
+  padding: 2rem;
+  border-left: 1px solid #d3d3d3;
+  text-align: center;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 1000px) {
   .showcase {
     height: 60rem;
@@ -143,11 +193,19 @@
   }
 }
 
-.logos {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  max-width: inherit;
-  min-height: 25rem;
+@media screen and (max-width: 1200px) {
+  .trend-cap,
+  .trend-foto {
+    width: 25rem;
+    height: 25rem;
+    padding: 2rem;
+    border-left: 1px solid #d3d3d3;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 2rem;
+  }
+
+  .photo-container {
+    flex-direction: column;
+  }
 }

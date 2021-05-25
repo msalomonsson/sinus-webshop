@@ -20,6 +20,9 @@ input:focus {
 .input-name {
   width: 60%;
 }
+input {
+  border-radius: 20px;
+}
 
 .input-street {
   width: 100%;
@@ -28,7 +31,7 @@ input:focus {
   margin-bottom: 3rem;
   box-sizing: border-box;
   border: none;
-  border-bottom: 1px solid rgb(58, 57, 57);
+  /* border-bottom: 1px solid rgb(58, 57, 57); */
 }
 
 .address {

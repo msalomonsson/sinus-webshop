@@ -1,18 +1,18 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserInfo } from "./profileSlice";
 import "./profile.css";
 
 const Profile = () => {
   const { user } = useSelector((state) => state.profile);
-  console.log(user);
   const [name, setName] = useState();
   const [address, setAddress] = useState();
   const [city, setCity] = useState();
   const [cardNumber, setCardNumber] = useState();
   const [cardDate, setCardDate] = useState();
   const [cardCcv, setCardCcv] = useState();
+  const [validForm, setValidForm] = useState();
 
   const dispatch = useDispatch();
 
@@ -23,20 +23,20 @@ const Profile = () => {
       cardNumber: cardNumber,
       cardDate: cardDate,
       cardCcv: cardCcv,
-      // card: {
-      //   ccv: cardCcv,
-      //   date: cardDate,
-      //   number: cardNumber,
-      // },
       city: city,
       name: name,
     });
     dispatch(getUserInfo(user.uid));
+    setValidForm(true);
+    setTimeout(() => {
+      setValidForm(false);
+    }, 2000);
   };
 
   return (
     <div className="p-container">
       <h1 className="big-category-title">Your account</h1>
+      {validForm && <h2 style={{ color: "green" }}>Updated account</h2>}
       <div className="profil-form">
         <div className="profile-text">
           {user.card && (
@@ -53,6 +53,7 @@ const Profile = () => {
                     onChange={(e) => {
                       setName(e.target.value);
                     }}
+                    style={{ textTransform: "capitalize" }}
                   />
                 </label>
               </div>
@@ -69,6 +70,7 @@ const Profile = () => {
                       onChange={(e) => {
                         setAddress(e.target.value);
                       }}
+                      style={{ textTransform: "capitalize" }}
                     />
                   </label>
                 </div>
@@ -84,6 +86,7 @@ const Profile = () => {
                       onChange={(e) => {
                         setCity(e.target.value);
                       }}
+                      style={{ textTransform: "capitalize" }}
                     />
                   </label>
                 </div>
@@ -104,6 +107,8 @@ const Profile = () => {
                       onChange={(e) => {
                         setCardNumber(e.target.value);
                       }}
+                      minLength="16"
+                      maxLength="16"
                     />
                   </label>
                 </div>
@@ -117,7 +122,7 @@ const Profile = () => {
                       placeholder="MM/YY"
                       defaultValue={user.cardDate}
                       onChange={(e) => {
-                        setCardDate(e.target.value);
+                        setCardDate(e.target.value.match(/.{1,2}/g).join("/"));
                       }}
                     />
                   </label>
@@ -134,6 +139,8 @@ const Profile = () => {
                       onChange={(e) => {
                         setCardCcv(e.target.value);
                       }}
+                      minLength="3"
+                      maxLength="3"
                     />
                   </label>
                 </div>

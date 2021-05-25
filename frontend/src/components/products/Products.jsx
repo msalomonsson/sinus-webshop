@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 const Products = () => {
   const { products } = useSelector((state) => state.products);
 
@@ -21,7 +22,13 @@ const Products = () => {
                     className="link"
                   >
                     <div className="product">
-                      <img height="80%" src={info.img} alt="" />
+                      <motion.img
+                        whileHover={{ scale: 1.1 }}
+                        src={info.img}
+                        height="80%"
+                      >
+                        {/* <img height="80%" src={info.img} alt="" /> */}
+                      </motion.img>
                       <h3 className="product-title">{info.title}</h3>
                       <h3 className="product-price">{info.price} kr</h3>
                     </div>

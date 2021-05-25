@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import CartItem from "./CartItem";
 import { removeFromCart } from "../products/productSlice";
+import { Link } from "react-router-dom";
 import "../cart/cart.css";
 const Cart = () => {
   const { cart } = useSelector((state) => state.products);
@@ -15,14 +16,23 @@ const Cart = () => {
     <div className="cart-container">
       <div className="cart-product-wrapper">
         <h2 className="shopping-cart-title">Shopping Cart</h2>
-        <div className="product-details-cart-wrapper">
-          <h5>Product details</h5>
-          <div className="product-details-list-cart">
-            <h5>Quantity</h5>
-            <h5>Price</h5>
-            <h5>Total</h5>
+        {cart.length === 0 ? (
+          <div className="empty-cart">
+            <h3 className="empty-text">Your cart is empty..</h3>
+            <Link to="/products">
+              <h3 className="empty-link">Start shopping!</h3>
+            </Link>
           </div>
-        </div>
+        ) : (
+          <div className="product-details-cart-wrapper">
+            <h4>Product details</h4>
+            <div className="product-details-list-cart">
+              <h4>Quantity</h4>
+              <h4>Price</h4>
+              <h4>Total</h4>
+            </div>
+          </div>
+        )}
 
         {cart.map((item, i) => {
           return (
@@ -40,18 +50,34 @@ const Cart = () => {
           <h4 className="sum-title">Order summary</h4>
           <section>
             <div className="sum-box sum-first">
-              <p className="sum-text">Products: {totalQty}</p>
+              <p className="sum-text">Products x {totalQty}</p>
               <p>{totalPrice}kr</p>
             </div>
             <div className="sum-box sum-second">
               <p className="sum-text">Shipping</p>
-              <p className="line">Free</p>
+              <p className="sum-text free-green">Free</p>
             </div>
             <div className="sum-box sum-third">
-              <h4 className="total">Total cost</h4>
-              <h4 className="total">{totalPrice}kr</h4>
+              <h3 className="total">Total cost</h3>
+              <h3 className="total">{totalPrice}kr</h3>
             </div>
-            <button className="sum-btn">Checkout</button>
+            <Link to={`/login`}>
+              <button
+                className="sum-btn"
+                disabled={cart.length === 0}
+                style={
+                  cart.length === 0
+                    ? {
+                        backgroundColor: "#d4d4d4",
+                        color: "#e6e6e6",
+                        cursor: "not-allowed",
+                      }
+                    : null
+                }
+              >
+                Checkout
+              </button>
+            </Link>
           </section>
         </div>
       </div>

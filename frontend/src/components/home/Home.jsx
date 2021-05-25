@@ -7,13 +7,16 @@ import skateboard from "../assets/skateboard.svg";
 import fil from "../assets/rightfil.svg";
 import logo from "../assets/logo-one.svg";
 import downfil from "../assets/down.svg";
+import hoodieAsh from "../assets/hoodie-ocean.png";
+import capBlue from "../assets/sinus-cap-blue.png";
+import skate from "../assets/sinus-skateboard-organic.png";
 
 const Home = () => {
   return (
     <div className="home-conatiner">
       <div
         className="showcase"
-        style={{ backgroundImage: `url(${background})`, minHeight: "40rem" }}
+        style={{ backgroundImage: `url(${background})`, minHeight: "45rem" }}
       >
         <div className="showcae-content">
           <div className="left-content">
@@ -57,20 +60,23 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div
-        // style={{
-        //   display: "flex",
-        //   justifyContent: "center",
-
-        //   maxWidth: "2rem",
-        //   margin: "auto",
-        // }}
-        className={"logos"}
-      >
-        <img src={logo} alt="" />
-        <img src={logo} alt="" />
-        <img src={logo} alt="" />
-        <img src={logo} alt="" />
+      <div className="home-row">
+        <div className="line-left"></div>
+        <div className="text-line">
+          <p className="home-line-text">New Trend</p>
+        </div>
+        <div className="line-right"></div>
+      </div>
+      <div className="photo-container">
+        <div className="trend-cap product">
+          <img className="cap-foto" src={capBlue} alt="cap" />
+        </div>
+        <div className="trend-foto product">
+          <img className="skate-foto" src={skate} alt="skate" />
+        </div>
+        <div className="trend-foto product">
+          <img className="hoodie-foto" src={hoodieAsh} alt="hoodie" />
+        </div>
       </div>
     </div>
   );

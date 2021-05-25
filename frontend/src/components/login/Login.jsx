@@ -7,7 +7,6 @@ import {
   validateSignInEmail,
   validateSignInPassword,
 } from "../../validation/validation";
-import { Link } from "react-router-dom";
 
 function Login() {
   const [login, setLogin] = useState();
